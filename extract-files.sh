@@ -17,7 +17,7 @@
 
 set -e
 
-export DEVICE=zl1
+export DEVICE=zl0
 export VENDOR=leeco
 
 # Use common extractor

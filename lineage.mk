@@ -17,26 +17,26 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from oneplus3 device
-$(call inherit-product, device/leeco/zl1/device.mk)
+# Inherit from leeco device
+$(call inherit-product, device/leeco/zl0/device.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_zl1
-PRODUCT_DEVICE := zl1
+PRODUCT_NAME := lineage_zl0
+PRODUCT_DEVICE := zl0
 PRODUCT_MANUFACTURER := LeEco
 PRODUCT_BRAND := LeEco
 
 PRODUCT_GMS_CLIENTID_BASE := android-leeco
 
 TARGET_VENDOR_PRODUCT_NAME := LePro3
-TARGET_VENDOR_DEVICE_NAME := le_zl1
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=le_zl1 PRODUCT_NAME=LePro3
+TARGET_VENDOR_DEVICE_NAME := le_zl0
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=le_zl0 PRODUCT_NAME=LePro3
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=LeEco/ZL1_NA/le_zl1:6.0.1/WEXNAOP5802101261S/letv01261206:user/release-keys \
-    PRIVATE_BUILD_DESC="le_zl1-user 6.0.1 WEXNAOP5802101261S eng.letv.20170126.120318 release-keys"
+    BUILD_FINGERPRINT=LeEco/ZL0_CN/le_zl0:6.0.1/WIXCNFN5802001232S/letv01231534:user/release-keys \
+    PRIVATE_BUILD_DESC="le_zl0-user 6.0.1 WIXCNFN5802001232S eng.letv.20170123.152935 release-keys"
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.model
 
