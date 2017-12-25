@@ -18,12 +18,12 @@
 # device-specific aspects (drivers) with a device-agnostic
 # product configuration (apps).
 #
--include vendor/leeco/zl1/BoardConfigVendor.mk
+-include vendor/leeco/zl0/BoardConfigVendor.mk
 
 # Le Pro3
-BOARD_PATH := device/leeco/zl1
+BOARD_PATH := device/leeco/zl0
 TARGET_NO_BOOTLOADER := true
-TARGET_OTA_ASSERT_DEVICE := zl1,le_zl1,LEX727,LEX720
+TARGET_OTA_ASSERT_DEVICE := zl0,le_zl0,LEX722
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
@@ -75,7 +75,7 @@ BOARD_TAGS_OFFSET := 0x00000100
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/leeco/msm8996
-TARGET_KERNEL_CONFIG := zl1_defconfig
+TARGET_KERNEL_CONFIG := zl0_defconfig
 TARGET_KERNEL_APPEND_DTB := true
 
 # Wrapper
@@ -142,16 +142,13 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/leeco/zl1/init/init_zl1.cpp
+TARGET_LIBINIT_DEFINES_FILE := device/leeco/zl0/init/init_zl0.cpp
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Sensors
 USE_SENSOR_MULTI_HAL := true
-
-# NFC
-TARGET_USES_NQ_NFC := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -164,3 +161,4 @@ TARGET_SPECIFIC_HEADER_PATH := $(BOARD_PATH)/include
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(BOARD_PATH)/sepolicy
+

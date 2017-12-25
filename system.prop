@@ -1,5 +1,5 @@
 #
-# system.prop for Le Pro3 (zl1)
+# system.prop for Le Pro3 (zl0)
 #
 
 # Radio/RIL
@@ -125,9 +125,6 @@ persist.sys.wfd.virtual=0
 sdm.debug.disable_rotator_split=1
 sdm.perf_hint_window=50
 
-# NFC
-ro.nfc.port=I2C
-
 # HWUI
 ro.hwui.texture_cache_size=96
 ro.hwui.layer_cache_size=64
@@ -186,4 +183,4 @@ persist.radio.flexmap_type=disabled
 ro.sys.sdcardfs=true
 
 # ParanoidHub
-ro.pa.device=zl1
+ro.pa.device=zl0

@@ -35,32 +35,17 @@
 
 void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type) {
     char device[PROP_VALUE_MAX];
-    int chinese = 1;
 
     if (read_file2(DEVINFO_FILE, device, sizeof(device)))
     {
-        if (!strncmp(device, "le_zl1_oversea", 14)) {
-            chinese = 0;
+        if (!strncmp(device, "le_zl0_whole_netcom", 19)) {
+            property_set("persist.multisim.config", "dsds");
+            property_set("persist.radio.multisim.config", "dsds");
+            property_set("ro.telephony.default_network", "22,22");
+            property_set("ro.product.model", "LEX722");
+            property_set("ro.product.customize", "whole-netcom");
         }
     }
 
-    if (chinese)
-    {
-        // Set the main properties for the Chinese variant.
-        property_set("persist.multisim.config", "dsds");
-        property_set("persist.radio.multisim.config", "dsds");
-        property_set("ro.telephony.default_network", "22,22");
-        property_set("ro.product.model", "LEX720");
-        property_set("ro.product.customize", "whole-netcom");
-    } else {
-        // Set the main properties for the USA variant.
-        property_set("persist.multisim.config", "NA");
-        property_set("persist.radio.multisim.config", "NA");
-        property_set("ro.telephony.default_network", "9");
-        property_set("ro.product.model", "LEX727");
-        property_set("ro.product.customize", "oversea");
-    }
-
-    // Set the expected 'le_zl1' properties used in our blobs.
-    property_set("ro.config.product", "le_zl1");
+    property_set("ro.config.product", "le_zl0");
 }

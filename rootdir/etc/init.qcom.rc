@@ -211,10 +211,6 @@ on post-fs-data
     mkdir /data/misc/audio/acdbdata 0770 media audio
     mkdir /data/misc/audio/acdbdata/delta 0770 media audio
 
-    # Create directories for NFC
-    mkdir /data/nfc
-    mkdir /data/oemnvitems 0771 radio radio
-
     # Create directories for sensors
     mkdir /persist/sensors 0775 system root
     write /persist/sensors/sensors_settings 1
@@ -353,10 +349,6 @@ on post-fs-data
     chmod 2770 /data/system/perfd
     rm /data/system/perfd/default_values
     start perfd
-
-    # NFC local data and nfcee xml storage
-    mkdir /data/nfc 0770 nfc nfc
-    mkdir /data/nfc/param 0770 nfc nfc
 
     # Create IOP daemon related dirs
     mkdir /data/misc/iop 0770 root system
@@ -543,7 +535,7 @@ service qmiproxy /system/bin/qmiproxy
 service qmuxd /system/bin/qmuxd
     class main
     user radio
-    group radio audio bluetooth gps nfc qcom_diag
+    group radio audio bluetooth gps qcom_diag
 
 service wifi_mac /system/bin/set_wifi_mac
     class core
