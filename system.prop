@@ -86,7 +86,7 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.sec.smoothstreaming=false
-mm.enable.qcom_parser=2097151
+mm.enable.qcom_parser=2080767
 persist.mm.enable.prefetch=true
 
 # Camera
