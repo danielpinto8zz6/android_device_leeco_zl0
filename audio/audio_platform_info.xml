@@ -26,52 +26,20 @@
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
     <acdb_ids>
-        <!-- Output -->
-        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/> <!-- SND_DEVICE_OUT_SPEAKER_STEREO (14) -->
-        <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_1" acdb_id="130"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_EXTERNAL_2" acdb_id="130"/>
-        <device name="SND_DEVICE_OUT_HEADPHONES_44_1" acdb_id="50"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="57"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_1" acdb_id="130"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES_EXTERNAL_2" acdb_id="130"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15"/> <!-- SND_DEVICE_OUT_SPEAKER (14) -->
-        <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="0"/>
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET" acdb_id="45"/>
-        <!-- Input -->
-        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="34"/> <!-- SND_DEVICE_IN_HANDSET_MIC_NS (101) -->
-        <device name="SND_DEVICE_IN_HANDSET_MIC_EXTERNAL" acdb_id="0"/>
-        <device name="SND_DEVICE_IN_HANDSET_DMIC" acdb_id="106"/>
-        <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="109"/>
-        <device name="SND_DEVICE_IN_SPEAKER_DMIC" acdb_id="124"/>
-        <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="115"/>
-        <device name="SND_DEVICE_IN_HEADSET_MIC_FLUENCE" acdb_id="117"/>
-        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="8"/>
-        <device name="SND_DEVICE_IN_CAMCORDER_MIC" acdb_id="40"/> <!-- SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE (21) -->
-        <device name="SND_DEVICE_IN_VOICE_DMIC" acdb_id="123"/>
-        <device name="SND_DEVICE_IN_VOICE_SPEAKER_DMIC" acdb_id="38"/>
-        <device name="SND_DEVICE_IN_VOICE_REC_MIC" acdb_id="8"/>
-        <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" acdb_id="40"/>
-        <device name="SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE" acdb_id="40"/>
-        <device name="SND_DEVICE_IN_HANDSET_STEREO_DMIC" acdb_id="40"/> <!-- SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE (0) -->
-        <device name="SND_DEVICE_IN_SPEAKER_STEREO_DMIC" acdb_id="40"/> <!-- SND_DEVICE_IN_VOICE_REC_DMIC_FLUENCE (105) -->
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
     </acdb_ids>
     <bit_width_configs>
-        <device name="SND_DEVICE_OUT_SPEAKER" bit_width="32"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
     </bit_width_configs>
-    <device_names>
-        <!-- Output -->
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" alias="voice-speaker-stereo" />
-        <!-- Input -->
-        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" alias="voice-speaker-dmic-ef" /> <!-- Dual Mic w/ Fluence -->
-        <device name="SND_DEVICE_IN_HANDSET_MIC" alias="handset-stereo-dmic-ef"/>
-        <device name="SND_DEVICE_IN_CAMCORDER_MIC" alias="handset-stereo-dmic-ef"/>
-    </device_names>
     <config_params>
         <param key="spkr_1_tz_name" value="wsatz.11"/>
         <param key="spkr_2_tz_name" value="wsatz.12"/>
-        <param key="perf_lock_opts" value="2, 0x101, 0x20F"/>
+        <!-- In the below value string, first parameter indicates size -->
+        <!-- followed by perf lock options                             -->
+        <param key="perf_lock_opts" value="4, 0x101, 0x704, 0x20F, 0x1E01"/>
         <param key="native_audio_mode" value="src"/>
-        <param key="input_mic_max_count" value="2"/>
+        <param key="input_mic_max_count" value="4"/>
     </config_params>
     <backend_names>
         <device name="SND_DEVICE_OUT_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
@@ -81,20 +49,14 @@
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET" backend="speaker-and-headphones" interface="SLIMBUS_0_RX-and-SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
-        <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="headphones" interface="SLIMBUS_6_RX"/>
+       <device name="SND_DEVICE_OUT_VOICE_ANC_HEADSET" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_LINE" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_FULL_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
         <device name="SND_DEVICE_OUT_VOICE_TTY_VCO_HEADPHONES" backend="headphones" interface="SLIMBUS_6_RX"/>
-        <!-- SmartPA -->
-        <device name="SND_DEVICE_OUT_SPEAKER" backend="smartpa" />
-        <device name="SND_DEVICE_OUT_HANDSET" backend="smartpa-handset" />
-        <device name="SND_DEVICE_OUT_VOICE_HANDSET" backend="smartpa-handset" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="smartpa" />
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET" backend="smartpa-and-usb-headphones" />
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HDMI" backend="smartpa-and-hdmi" />
     </backend_names>
      <pcm_ids>
        <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="19" />
        <usecase name="USECASE_AUDIO_PLAYBACK_ULL" type="out" id="19" />
      </pcm_ids>
 </audio_platform_info>
+

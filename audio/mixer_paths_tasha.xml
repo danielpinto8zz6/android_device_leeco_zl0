@@ -51,35 +51,35 @@
     <ctl name="LINEOUT4 Volume" value="13" />
     <ctl name="HPHL Volume" value="20" />
     <ctl name="HPHR Volume" value="20" />
-    <ctl name="RX0 Digital Volume" value="92" />
-    <ctl name="RX1 Digital Volume" value="92" />
-    <ctl name="RX2 Digital Volume" value="92" />
-    <ctl name="RX3 Digital Volume" value="92" />
-    <ctl name="RX4 Digital Volume" value="92" />
-    <ctl name="RX5 Digital Volume" value="92" />
-    <ctl name="RX6 Digital Volume" value="92" />
-    <ctl name="RX7 Digital Volume" value="92" />
-    <ctl name="RX8 Digital Volume" value="92" />
-    <ctl name="ADC1 Volume" value="16" />
-    <ctl name="ADC2 Volume" value="16" />
-    <ctl name="ADC3 Volume" value="16" />
-    <ctl name="ADC4 Volume" value="16" />
-    <ctl name="ADC5 Volume" value="16" />
-    <ctl name="ADC6 Volume" value="16" />
-    <ctl name="DEC0 Volume" value="92" />
-    <ctl name="DEC1 Volume" value="92" />
-    <ctl name="DEC2 Volume" value="92" />
-    <ctl name="DEC3 Volume" value="92" />
-    <ctl name="DEC4 Volume" value="92" />
-    <ctl name="DEC5 Volume" value="92" />
-    <ctl name="DEC6 Volume" value="92" />
-    <ctl name="DEC7 Volume" value="92" />
-    <ctl name="DEC8 Volume" value="92" />
+    <ctl name="RX0 Digital Volume" value="84" />
+    <ctl name="RX1 Digital Volume" value="84" />
+    <ctl name="RX2 Digital Volume" value="84" />
+    <ctl name="RX3 Digital Volume" value="84" />
+    <ctl name="RX4 Digital Volume" value="84" />
+    <ctl name="RX5 Digital Volume" value="84" />
+    <ctl name="RX6 Digital Volume" value="84" />
+    <ctl name="RX7 Digital Volume" value="84" />
+    <ctl name="RX8 Digital Volume" value="84" />
+    <ctl name="ADC1 Volume" value="12" />
+    <ctl name="ADC2 Volume" value="12" />
+    <ctl name="ADC3 Volume" value="0" />
+    <ctl name="ADC4 Volume" value="0" />
+    <ctl name="ADC5 Volume" value="12" />
+    <ctl name="ADC6 Volume" value="12" />
+    <ctl name="DEC0 Volume" value="84" />
+    <ctl name="DEC1 Volume" value="84" />
+    <ctl name="DEC2 Volume" value="84" />
+    <ctl name="DEC3 Volume" value="84" />
+    <ctl name="DEC4 Volume" value="84" />
+    <ctl name="DEC5 Volume" value="84" />
+    <ctl name="DEC6 Volume" value="84" />
+    <ctl name="DEC7 Volume" value="84" />
+    <ctl name="DEC8 Volume" value="84" />
     <ctl name="COMP1 Switch" value="1" />
     <ctl name="COMP2 Switch" value="1" />
     <ctl name="COMP7 Switch" value="1" />
     <ctl name="COMP8 Switch" value="1" />
-    <ctl name="RX HPH Mode" value="CLS_H_HIFI" />
+    <ctl name="RX HPH Mode" value="CLS_H_LP" />
     <ctl name="SLIMBUS_3_RX Port Mixer MI2S_TX" value="0" />
     <ctl name="HDMI_RX Port Mixer MI2S_TX" value="0" />
     <ctl name="SLIMBUS_0_RX Port Mixer SLIM_0_TX" value="0" />
@@ -593,7 +593,18 @@
     <ctl name="SLIMBUS_5_TX LSM Function" value="None" />
     <!-- listen end-->
 
-    <!-- SmartPA amplifier -->
+    <!--MAX98927 Smart PA-->
+    <!--
+    <ctl name="Speaker Source" value="i2s" />
+    <ctl name="Monomix Output" value="ch_1_2_div" />-->
+    <!--<ctl name="Left Monomix Output" value="ch_1_2_div" />-->
+    <!--<ctl name="Right Monomix Output" value="ch_1_2_div" />-->
+    <!--
+    <ctl name="DRE EN" value="0" />
+    <ctl name="Ramp Switch" value="0" />
+    <ctl name="Amp DSP Enable" value="1" />
+    <ctl name="Amp Volume Location" value="0" />
+    -->
     <ctl name="DRE EN" value="1" />
     <ctl name="Left Channel Enable" value="0" />
     <ctl name="Right Channel Enable" value="0" />
@@ -603,7 +614,7 @@
     <ctl name="Speaker Volume" value="1" />
     <ctl name="Left Digital Gain" value="40" />
     <ctl name="Right Digital Gain" value="40" />
-    <!-- SmartPA amplifier end -->
+    <!--MAX98927 Smart PA end-->
 
     <!-- ADSP testfwk -->
     <ctl name="SLIMBUS_DL_HL Switch" value="0" />
@@ -1857,6 +1868,7 @@
         <ctl name="Voip_Tx Mixer SLIM_0_TX_Voip" value="1" />
     </path>
 
+
     <path name="compress-voip-call bt-sco">
         <ctl name="AUX_PCM_RX_Voice Mixer Voip" value="1" />
         <ctl name="Voip_Tx Mixer AUX_PCM_TX_Voip" value="1" />
@@ -2187,7 +2199,7 @@
     </path>
 
     <path name="speaker">
-        <ctl name="Boost Output Voltage" value="10V" />
+        <ctl name="Boost Output Voltage" value="9V" />
         <ctl name="Left Feedback Enable" value="ON" />
         <ctl name="Right Feedback Enable" value="ON" />
         <ctl name="Speaker Volume" value="5" />
@@ -2197,29 +2209,58 @@
         <ctl name="Right Channel Enable" value="1" />
     </path>
 
-    <path name="speaker-stereo">
-        <path name="speaker" />
-        <ctl name="Left Digital Gain" value="64" />
-        <ctl name="Right Digital Gain" value="72" />
-    </path>
-
-    <path name="speaker-liquid">
-        <path name="speaker-stereo" />
-    </path>
-
-    <path name="speaker-vbat">
-        <path name="speaker" />
-        <ctl name="RX INT7 VBAT SPKRL VBAT Enable" value="1" />
-        <ctl name="RX INT8 VBAT SPKRR VBAT Enable" value="1" />
-    </path>
-
-    <path name="speaker-mono">
-        <ctl name="Boost Output Voltage" value="10V" />
-        <ctl name="Right Feedback Enable" value="ON" />
-        <ctl name="Speaker Volume" value="6" />
-        <ctl name="Left Digital Gain" value="0" />
-        <ctl name="Right Digital Gain" value="58" />
+    <path name="speaker_only">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+	<ctl name="Right Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="1" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="56" />
+        <ctl name="Right Digital Gain" value="64" />
         <ctl name="Left Channel Enable" value="0" />
+        <ctl name="Right Channel Enable" value="1" />
+    </path>
+
+    <path name="receiver_only">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+	<ctl name="Left Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="1" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="56" />
+        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Left Channel Enable" value="1" />
+        <ctl name="Right Channel Enable" value="0" />
+    </path>
+
+    <path name="speaker-stereo">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+        <ctl name="Left Feedback Enable" value="ON" />
+        <ctl name="Right Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="1" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="56" />
+        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="1" />
     </path>
 
@@ -2233,9 +2274,37 @@
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
     </path>
 
+    <path name="speaker-mono">
+        <!--<ctl name="Left Monomix Output" value="ch_1_2_div" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_0" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+        <ctl name="Right Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="1" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="56" />
+        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Left Channel Enable" value="0" />
+        <ctl name="Right Channel Enable" value="1" />
+    </path>
+
+    <path name="speaker-liquid">
+        <path name="speaker" />
+    </path>
+
    <path name="speaker-vbat-mono">
        <path name="speaker-mono" />
        <ctl name="RX INT7 VBAT SPKRL VBAT Enable" value="1" />
+   </path>
+
+   <path name="speaker-vbat">
+       <path name="speaker" />
+       <ctl name="RX INT7 VBAT SPKRL VBAT Enable" value="1" />
+       <ctl name="RX INT8 VBAT SPKRR VBAT Enable" value="1" />
    </path>
 
    <path name="sidetone-iir">
@@ -2293,21 +2362,19 @@
     <path name="speaker-protected">
         <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
         <ctl name="AIF4_VI Mixer SPKR_VI_2" value="1" />
-        <ctl name="SLIM_4_TX Format" value="PACKED_16B" />
-        <path name="speaker-stereo" />
-        <ctl name="VI_FEED_TX Channels" value="One" />
+	<ctl name="SLIM_4_TX Format" value="PACKED_16B" />
+        <path name="speaker" />
+        <ctl name="VI_FEED_TX Channels" value="Two" />
         <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
         <ctl name="SLIM0_RX_VI_FB_RCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="voice-speaker-protected">
         <ctl name="AIF4_VI Mixer SPKR_VI_1" value="1" />
-        <ctl name="AIF4_VI Mixer SPKR_VI_2" value="1" />
-        <ctl name="SLIM_4_TX Format" value="PACKED_16B" />
-        <path name="speaker-stereo" />
+	<ctl name="SLIM_4_TX Format" value="PACKED_16B" />
+        <path name="speaker-mono" />
         <ctl name="VI_FEED_TX Channels" value="One" />
         <ctl name="SLIM0_RX_VI_FB_LCH_MUX"  value="SLIM4_TX" />
-        <ctl name="SLIM0_RX_VI_FB_RCH_MUX"  value="SLIM4_TX" />
     </path>
 
     <path name="vi-feedback">
@@ -2325,19 +2392,27 @@
     </path>
 
     <path name="handset">
-        <ctl name="Boost Output Voltage" value="9V" />
-        <ctl name="Left Feedback Enable" value="ON" />
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1_2_div" />-->
+        <ctl name="Boost Output Voltage" value="6.5V" />
+        <ctl name="Left Feedback Enable" value="OFF" />
         <ctl name="Right Feedback Enable" value="OFF" />
+        <!--
+        <ctl name="DRE EN" value="0" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
         <ctl name="Speaker Volume" value="1" />
-        <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="0" />
+        <ctl name="Left Digital Gain" value="40" />
+        <ctl name="Right Digital Gain" value="40" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="0" />
     </path>
 
     <path name="handset-mic">
         <path name="adc1" />
-        <ctl name="ADC1 Volume" value="16" />
+        <ctl name="ADC1 Volume" value="12" />
     </path>
 
     <path name="handset-mic-db">
@@ -2371,17 +2446,29 @@
     </path>
 
     <path name="anc-handset">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1_2_div" />-->
         <ctl name="Boost Output Voltage" value="6.5V" />
         <ctl name="Left Feedback Enable" value="OFF" />
         <ctl name="Right Feedback Enable" value="OFF" />
+        <!--
+        <ctl name="DRE EN" value="0" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
         <ctl name="Speaker Volume" value="1" />
         <ctl name="Left Digital Gain" value="40" />
-        <ctl name="Right Digital Gain" value="0" />
+        <ctl name="Right Digital Gain" value="40" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="0" />
     </path>
 
     <path name="hac-handset">
+        <path name="anc-handset" />
+    </path>
+
+    <path name="anc-handset-brightness">
         <path name="anc-handset" />
     </path>
 
@@ -2448,24 +2535,62 @@
     </path>
 
     <path name="voice-speaker">
-        <path name="speaker-stereo" />
+        <path name="speaker-mono" />
     </path>
 
     <path name="voice-speaker-stereo">
         <path name="speaker-stereo" />
     </path>
 
-    <path name="voice-speaker-stereo-nb">
+	<path name="voice-speaker-stereo-nb">
         <path name="speaker-stereo" />
     </path>
 
-    <path name="voice-speaker-stereo-wb">
+	<path name="voice-speaker-stereo-wb">
         <path name="speaker-stereo" />
     </path>
 
     <path name="voice-speaker-fluid">
         <path name="speaker-fluid" />
     </path>
+
+    <path name="voice-speaker-brightness">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1_2_div" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+        <ctl name="Right Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="0" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="66" />
+        <ctl name="Right Digital Gain" value="66" />
+        <ctl name="Left Channel Enable" value="0" />
+        <ctl name="Right Channel Enable" value="1" />
+    </path>
+
+    <path name="voice-speaker-stereo-brightness">
+        <!--<ctl name="Left Monomix Output" value="ch_0" />-->
+        <!--<ctl name="Right Monomix Output" value="ch_1" />-->
+        <ctl name="Boost Output Voltage" value="9V" />
+        <ctl name="Left Feedback Enable" value="ON" />
+        <ctl name="Right Feedback Enable" value="ON" />
+        <!--
+        <ctl name="DRE EN" value="0" />
+        <ctl name="Ramp Switch" value="0" />
+        <ctl name="Amp DSP Enable" value="1" />
+        <ctl name="Amp Volume Location" value="0" />
+        -->
+        <ctl name="Speaker Volume" value="5" />
+        <ctl name="Left Digital Gain" value="66" />
+        <ctl name="Right Digital Gain" value="66" />
+        <ctl name="Left Channel Enable" value="1" />
+        <ctl name="Right Channel Enable" value="1" />
+    </path>
+
 
     <path name="voice-speaker-mic">
         <path name="speaker-mic" />
@@ -2527,8 +2652,8 @@
     </path>
 
     <path name="anc-headphones">
-        <ctl name="COMP1 Switch" value="0" />
-        <ctl name="COMP2 Switch" value="0" />
+	<ctl name="COMP1 Switch" value="0" />
+	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
         <ctl name="ANC Slot" value="0" />
         <ctl name="ADC MUX10" value="AMIC" />
@@ -2570,8 +2695,8 @@
     </path>
 
     <path name="voice-anc-headphones">
-        <ctl name="COMP1 Switch" value="0" />
-        <ctl name="COMP2 Switch" value="0" />
+	<ctl name="COMP1 Switch" value="0" />
+	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
         <ctl name="ANC Slot" value="0" />
         <ctl name="ADC MUX10" value="AMIC" />
@@ -2605,8 +2730,8 @@
     </path>
 
     <path name="voice-anc-fb-headphones">
-        <ctl name="COMP1 Switch" value="0" />
-        <ctl name="COMP2 Switch" value="0" />
+	<ctl name="COMP1 Switch" value="0" />
+	<ctl name="COMP2 Switch" value="0" />
         <ctl name="ANC Function" value="ON" />
         <ctl name="ANC Slot" value="1" />
         <ctl name="ADC MUX10" value="AMIC" />
@@ -2880,6 +3005,7 @@
     </path>
 
     <!-- TTY devices -->
+
     <path name="tty-headphones">
         <ctl name="SLIM RX2 MUX" value="AIF4_PB" />
         <ctl name="SLIM_6_RX Channels" value="One" />
@@ -2932,4 +3058,5 @@
     <path name="ADSP testfwk">
         <ctl name="SLIMBUS_DL_HL Switch" value="1" />
     </path>
+
 </mixer>
