@@ -34,8 +34,6 @@ on early-init
     chmod 0755 /sys/kernel/debug
 
 on init
-    export LD_SHIM_LIBS "/system/vendor/lib64/lib-imsvt.so|libshims_ims.so"
-
     mkdir /persist 0771 system system
 
     symlink /sdcard /storage/sdcard0
