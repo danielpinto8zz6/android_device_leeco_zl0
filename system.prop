@@ -183,7 +183,7 @@ persist.env.fastdorm.enabled=true
 persist.radio.flexmap_type=disabled
 
 # sdcardFS
-ro.sys.sdcardfs=true
+ro.sys.sdcardfs=false
 
 # ParanoidHub
 ro.pa.device=zl1
