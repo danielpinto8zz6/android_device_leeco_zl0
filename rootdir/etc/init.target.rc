@@ -60,6 +60,8 @@ on post-fs-data
     mkdir /data/misc/qvr 0770 system system
     mkdir /data/misc/audio_pp 0771 media audio
 
+    mkdir /data/oemnvitems 0771 radio radio
+
 on boot
     # Storage
     start rmt_storage

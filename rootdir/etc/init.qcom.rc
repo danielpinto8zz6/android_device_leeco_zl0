@@ -108,6 +108,9 @@ on boot
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
+    # Crypto
+    chmod 0666 /dev/qseecom
+
     # QMUX
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
@@ -182,6 +185,9 @@ on boot
     # Bonding
     chown wifi wifi /sys/class/net/bond0/bonding/queue_id
 
+    # HVDCP Charger
+    setprop persist.hvdcp.allow_opti 1
+
 on post-fs-data
     # Create directory for battd logs
     mkdir /data/battd 0755 log log
@@ -208,10 +214,6 @@ on post-fs-data
     # Create directory for audio delta files
     mkdir /data/misc/audio/acdbdata 0770 media audio
     mkdir /data/misc/audio/acdbdata/delta 0770 media audio
-
-    # Create directories for NFC
-    mkdir /data/nfc
-    mkdir /data/oemnvitems 0771 radio radio
 
     # Create directories for sensors
     mkdir /persist/sensors 0775 system root
@@ -494,7 +496,6 @@ service config_bt_addr /system/bin/btnvtool -O
 service config_bluetooth /system/bin/sh /system/etc/init.qcom.bt.sh "onboot"
     class core
     user root
-    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
@@ -502,7 +503,6 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
     user bluetooth
     group bluetooth net_bt_admin
     disabled
-    seclabel u:r:bluetooth_loader:s0
     oneshot
 
 on property:bluetooth.hciattach=true
@@ -542,15 +542,6 @@ service qmuxd /system/bin/qmuxd
     class main
     user radio
     group radio audio bluetooth gps nfc qcom_diag
-
-service wifi_mac /system/bin/set_wifi_mac
-    class core
-    user root
-    oneshot
-    disabled
-
-on property:init.svc.qmuxd=running
-    start wifi_mac
 
 service netmgrd /system/bin/netmgrd
     class main
@@ -710,6 +701,7 @@ service charger /charger
 
 on charger
     setprop persist.sys.usb.config charging
+    setprop persist.hvdcp.allow_opti 1
 
 # IRQ Balancer
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
