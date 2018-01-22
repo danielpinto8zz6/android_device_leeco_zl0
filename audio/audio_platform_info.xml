@@ -35,7 +35,7 @@
         <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
     </bit_width_configs>
     <device_names>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" alias="speaker-protected" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" alias="voice-speaker-stereo" />
         <device name="SND_DEVICE_IN_CAMCORDER_MIC" alias="handset-stereo-dmic-ef"/>
     </device_names>
     <config_params>
