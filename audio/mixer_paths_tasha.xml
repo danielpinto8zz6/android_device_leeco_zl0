@@ -2278,7 +2278,7 @@
         <!--<ctl name="Left Monomix Output" value="ch_1_2_div" />-->
         <!--<ctl name="Right Monomix Output" value="ch_0" />-->
         <ctl name="Boost Output Voltage" value="9V" />
-        <ctl name="Right Feedback Enable" value="ON" />
+        <ctl name="Left Feedback Enable" value="ON" />
         <!--
         <ctl name="DRE EN" value="1" />
         <ctl name="Ramp Switch" value="0" />
@@ -2286,10 +2286,10 @@
         <ctl name="Amp Volume Location" value="0" />
         -->
         <ctl name="Speaker Volume" value="5" />
-        <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="64" />
-        <ctl name="Left Channel Enable" value="0" />
-        <ctl name="Right Channel Enable" value="1" />
+        <ctl name="Left Digital Gain" value="16" />
+        <ctl name="Right Digital Gain" value="24" />
+        <ctl name="Left Channel Enable" value="1" />
+        <ctl name="Right Channel Enable" value="0" />
     </path>
 
     <path name="speaker-liquid">
