@@ -323,6 +323,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     tcmiface
 
+# Releasetools
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/bin/deunify.sh:install/bin/deunify.sh
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.msm8996

@@ -26,6 +26,8 @@
  */
 
 #include <stdlib.h>
+#define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
+#include <sys/_system_properties.h>
 
 #include "vendor_init.h"
 #include "property_service.h"
@@ -33,18 +35,38 @@
 
 #define DEVINFO_FILE "/dev/block/bootdevice/by-name/devinfo"
 
+void property_override(char const prop[], char const value[])
+{
+    prop_info *pi;
+
+    pi = (prop_info*) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else
+        __system_property_add(prop, strlen(prop), value, strlen(value));
+}
+
 void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *board_type) {
     char device[PROP_VALUE_MAX];
-    int chinese = 1;
+    int isLEX720 = 0, isLEX722 = 0, isLEX727 = 0;
 
     if (read_file2(DEVINFO_FILE, device, sizeof(device)))
     {
-        if (!strncmp(device, "le_zl1_oversea", 14)) {
-            chinese = 0;
+        if (!strncmp(device, "le_zl0_whole_netcom", 19))
+        {
+            isLEX722 = 1;
+        }
+        else if (!strncmp(device, "le_zl1_oversea", 14))
+        {
+            isLEX727 = 1;
+        }
+        else if (!strncmp(device, "le_zl1", 6))
+        {
+            isLEX720 = 1;
         }
     }
 
-    if (chinese)
+    if (isLEX720 == 1)
     {
         // Set the main properties for the Chinese variant.
         property_set("persist.multisim.config", "dsds");
@@ -52,13 +74,34 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.telephony.default_network", "22,22");
         property_set("ro.product.model", "LEX720");
         property_set("ro.product.customize", "whole-netcom");
-    } else {
+    }
+    else if (isLEX727 == 1) 
+    {
         // Set the main properties for the USA variant.
         property_set("persist.multisim.config", "NA");
         property_set("persist.radio.multisim.config", "NA");
         property_set("ro.telephony.default_network", "9");
         property_set("ro.product.model", "LEX727");
         property_set("ro.product.customize", "oversea");
+    }
+    else if (isLEX722 == 1) 
+    {
+        // Set the main properties for the 722 variant.
+        property_override("ro.product.device", "le_zl0");
+        property_set("persist.multisim.config", "dsds");
+        property_set("persist.radio.multisim.config", "dsds");
+        property_set("ro.telephony.default_network", "22,22");
+        property_set("ro.product.model", "LEX722");
+        property_set("ro.product.customize", "whole-netcom");
+        // Power profile
+        property_set("ro.power_profile.override", "power_profile_zl0");
+        // Fingerprint
+        property_override("ro.build.description", "le_zl0-user 6.0.1 WIXCNFN5802001232S eng.letv.20170123.152935 release-keys");
+        property_override("ro.build.fingerprint", "LeEco/ZL1_CN/le_zl0:6.0.1/WIXCNFN5802001232S/letv01231534:user/release-keys");
+    }
+    else
+    {
+        property_override("ro.product.model", "UNKNOWN");
     }
 
     // Set the expected 'le_zl1' properties used in our blobs.

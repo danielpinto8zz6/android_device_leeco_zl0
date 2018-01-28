@@ -23,7 +23,7 @@
 # Le Pro3
 BOARD_PATH := device/leeco/zl1
 TARGET_NO_BOOTLOADER := true
-TARGET_OTA_ASSERT_DEVICE := zl1,le_zl1,LEX727,LEX720
+TARGET_OTA_ASSERT_DEVICE := le_zl0,zl0,zl1,le_zl1,LEX727,LEX720
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
@@ -161,6 +161,9 @@ TARGET_RECOVERY_FSTAB := $(BOARD_PATH)/rootdir/etc/fstab.qcom
 
 # Headers
 TARGET_SPECIFIC_HEADER_PATH := $(BOARD_PATH)/include
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/leeco/zl
 
 # SELinux
 BOARD_SEPOLICY_DIRS += $(BOARD_PATH)/sepolicy
