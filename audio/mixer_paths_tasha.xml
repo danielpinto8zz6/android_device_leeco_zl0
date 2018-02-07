@@ -2204,7 +2204,7 @@
         <ctl name="Right Feedback Enable" value="ON" />
         <ctl name="Speaker Volume" value="5" />
         <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Right Digital Gain" value="56" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="1" />
     </path>
@@ -2222,7 +2222,7 @@
         -->
         <ctl name="Speaker Volume" value="5" />
         <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Right Digital Gain" value="56" />
         <ctl name="Left Channel Enable" value="0" />
         <ctl name="Right Channel Enable" value="1" />
     </path>
@@ -2240,7 +2240,7 @@
         -->
         <ctl name="Speaker Volume" value="5" />
         <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Right Digital Gain" value="56" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="0" />
     </path>
@@ -2259,7 +2259,7 @@
         -->
         <ctl name="Speaker Volume" value="5" />
         <ctl name="Left Digital Gain" value="56" />
-        <ctl name="Right Digital Gain" value="64" />
+        <ctl name="Right Digital Gain" value="56" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="1" />
     </path>
@@ -2286,8 +2286,8 @@
         <ctl name="Amp Volume Location" value="0" />
         -->
         <ctl name="Speaker Volume" value="5" />
-        <ctl name="Left Digital Gain" value="16" />
-        <ctl name="Right Digital Gain" value="24" />
+        <ctl name="Left Digital Gain" value="66" />
+        <ctl name="Right Digital Gain" value="66" />
         <ctl name="Left Channel Enable" value="1" />
         <ctl name="Right Channel Enable" value="0" />
     </path>
@@ -2594,7 +2594,7 @@
 
     <path name="voice-speaker-mic">
         <path name="speaker-mic" />
-        <ctl name="ADC4 Volume" value="10" />
+        <ctl name="ADC4 Volume" value="28" />
     </path>
 
     <path name="voice-speaker-stereo-mic">

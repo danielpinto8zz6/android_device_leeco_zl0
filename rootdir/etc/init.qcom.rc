@@ -538,11 +538,6 @@ service qmiproxy /system/bin/qmiproxy
     group radio qcom_diag
     disabled
 
-service qmuxd /system/bin/qmuxd
-    class main
-    user radio
-    group radio audio bluetooth gps nfc qcom_diag
-
 service netmgrd /system/bin/netmgrd
     class main
     group radio system
@@ -716,11 +711,6 @@ service qseeproxydaemon /system/vendor/bin/qseeproxydaemon
     class late_start
     user system
     group system
-
-# YEP
-service yep_qmi_server /system/bin/yep_qmi_server
-    class core
-    user root
 
 # Post-boot
 on property:sys.boot_completed=1
